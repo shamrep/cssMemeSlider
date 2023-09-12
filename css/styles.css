@@ -4,10 +4,17 @@
     box-sizing: inherit;
 }
 
+button:hover {
+    border: #BB945F;
+    background-color: #BB945F;
+    color: #0C0C0E;
+    cursor: pointer;
+}
+
 .slider {
     /* width: 100%; */
     /* min-width: 500px; */
-    max-width: 1024px;
+    /* max-width: 1024px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,21 +23,42 @@
 }
 
 .slider__images {
-    /* display: flex;
+    width: 70%;
+    display: flex;
     flex-direction: column;
-    align-items:center; */
+    /* height: 70%; */
 }
 
 .slider__images img {
-    width: 90%;
-    height: 70%;
- 
+    /* width: 90%;
+    height: 70%; */
 }
 
 .slider__control {
-    width: 100%;
+    width: 70%;
     height: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+.slider__carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-container {
+    display: inline-block; /* Make the container a block element to take up the full width */
+    padding: 5px; /* Add padding to increase clickable area */
+    cursor: pointer; 
+}
+
+.slider__button {
+    min-width: 16px;
+    min-height: 16px;
+    border-radius: 50px;
+    border: none;
+    background-color: #cbce0e;
+}
+
