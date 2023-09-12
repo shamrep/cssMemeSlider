@@ -15,39 +15,31 @@ class Slider {
 
     handleButtonClick(event) {
         let nextPosition = this.getButtonId(event.target);
-
+        this.changeImageOnCarouselClick(nextPosition);
+        this.carouselPosition = nextPosition;
     }
 
-    async changeImagesOnCCarouselClick(newPosition) {
+    async changeImageOnCarouselClick(newPosition) {
         let split = newPosition - this.carouselPosition;
         let position = this.carouselPosition;
 
         if (Math.abs(split) > 1) {
             for (let index = 1; index <= Math.abs(split); index++) {
-                if (window.innerWidth > this.RESOLUTION) {
+               
                     if (split > 0) {
-                        this.showSliderWideScreen(position + index);
+                        this.displaySlide(position + index);
                     } else {
-                        this.showSliderWideScreen(position - index);
+                        this.displaySlide(position - index);
                     }
                     await this.sleep(this.PAUSE_TIME);
-                } else {
-                    if (split > 0) {
-                        this.showSliderThinScreen(position + index);
-                    } else {
-                        this.showSliderThinScreen(position - index);
-                    }
-                    await this.sleep(this.PAUSE_TIME);
-                }
             }
-        } else {
-            if (window.innerWidth > this.RESOLUTION) {
-                this.showSliderWideScreen(newPosition);
-            } else {
-                this.showSliderThinScreen(newPosition);
-            }
-            await this.sleep(this.PAUSE_TIME);
-        }
+        } 
+    }
+
+    displaySlide(imageId) {
+        this.showElement(document.getElementById('image-' + imageId));
+        this.showElement(document.getElementById('description-' + imageId));
+        this.
     }
 
     sleep(ms) {
@@ -67,18 +59,22 @@ class Slider {
         }
     }
 
+    selectButton(button) {
+        button.classList.add('selected');
+    }
+
     hideElement(element) {
         element.classList.add(this.NOT_VISIBLE);
-        element.parentNode.classList.add(this.NOT_VISIBLE);
-        element.classList.remove(this.FADE);
-        element.parentNode.classList.remove(this.FADE);
+        // element.parentNode.classList.add(this.NOT_VISIBLE);
+        // element.classList.remove(this.FADE);
+        // element.parentNode.classList.remove(this.FADE);
     }
 
     showElement(element) {
         element.classList.remove(this.NOT_VISIBLE);
-        element.parentNode.classList.remove(this.NOT_VISIBLE);
-        element.classList.add(this.FADE);
-        element.parentNode.classList.add(this.FADE);
+        // element.parentNode.classList.remove(this.NOT_VISIBLE);
+        // element.classList.add(this.FADE);
+        // element.parentNode.classList.add(this.FADE);
     }
 
     sleep(ms) {
