@@ -11,6 +11,12 @@ button:hover {
     cursor: pointer;
 }
 
+.slider__button.gold {
+    border: #BB945F;
+    background-color: #BB945F;
+    color: #0C0C0E;
+}
+
 .slider {
     /* width: 100%; */
     /* min-width: 500px; */

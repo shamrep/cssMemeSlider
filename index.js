@@ -4,6 +4,7 @@ class Slider {
         this.PAUSE_TIME = 1000;
         this.buttons = document.querySelectorAll('.slider__button');
         this.carouselPosition = this.getButtonId(document.getElementById('slider-button-1'));
+        this.changeImageOnCarouselClick(this.carouselPosition);
         this.setupEventListeners();
     }
 
@@ -41,11 +42,13 @@ class Slider {
     }
 
     displaySlide(slideId) {
+       document.getElementById('slider-button-' + slideId).classList.add('gold');
         this.showElement(document.getElementById('image-' + slideId));
         this.showElement(document.getElementById('description-' + slideId));
     }
 
     hideSlide(slideId) {
+        document.getElementById('slider-button-' + slideId).classList.remove('gold');
         this.hideElement(document.getElementById('image-' + slideId));
         this.hideElement(document.getElementById('description-' + slideId));
     }
