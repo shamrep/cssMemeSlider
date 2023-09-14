@@ -62,3 +62,7 @@ button:hover {
     background-color: #cbce0e;
 }
 
+.not-visible{
+    display: none;
+}
+

@@ -1,7 +1,7 @@
 class Slider {
     constructor() {
         this.NOT_VISIBLE = 'not-visible';
-        this.PAUSE_TIME = 500;
+        this.PAUSE_TIME = 1000;
         this.buttons = document.querySelectorAll('.slider__button');
         this.carouselPosition = this.getButtonId(document.getElementById('slider-button-1'));
         this.setupEventListeners();
@@ -16,30 +16,38 @@ class Slider {
     handleButtonClick(event) {
         let nextPosition = this.getButtonId(event.target);
         this.changeImageOnCarouselClick(nextPosition);
-        this.carouselPosition = nextPosition;
+        // this.carouselPosition = nextPosition;
+        // this.changeImageOnCarouselClick
     }
 
     async changeImageOnCarouselClick(newPosition) {
         let split = newPosition - this.carouselPosition;
         let position = this.carouselPosition;
 
-        if (Math.abs(split) > 1) {
+        if (Math.abs(split) >= 1) {
             for (let index = 1; index <= Math.abs(split); index++) {
-               
+                    this.hideSlide(this.carouselPosition);
                     if (split > 0) {
-                        this.displaySlide(position + index);
+                        this.carouselPosition = position + index;
+                        this.displaySlide(this.carouselPosition);
                     } else {
-                        this.displaySlide(position - index);
+                        this.carouselPosition = position - index;
+                        this.displaySlide(this.carouselPosition);
                     }
                     await this.sleep(this.PAUSE_TIME);
+                    
             }
         } 
     }
 
-    displaySlide(imageId) {
-        this.showElement(document.getElementById('image-' + imageId));
-        this.showElement(document.getElementById('description-' + imageId));
-        this.
+    displaySlide(slideId) {
+        this.showElement(document.getElementById('image-' + slideId));
+        this.showElement(document.getElementById('description-' + slideId));
+    }
+
+    hideSlide(slideId) {
+        this.hideElement(document.getElementById('image-' + slideId));
+        this.hideElement(document.getElementById('description-' + slideId));
     }
 
     sleep(ms) {
@@ -82,3 +90,5 @@ class Slider {
     }
 
 }
+
+const slider = new Slider();
