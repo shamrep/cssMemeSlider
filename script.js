@@ -1,7 +1,7 @@
 class Slider {
     constructor() {
         this.NOT_VISIBLE = 'not-visible';
-        this.PAUSE_TIME = 700;
+        this.PAUSE_TIME = 500;
         this.buttons = document.querySelectorAll('.slider__button');
         this.carouselPosition = this.getButtonId(document.getElementById('slider-button-1'));
         this.changeImageOnCarouselClick(this.carouselPosition);
@@ -11,19 +11,25 @@ class Slider {
     }
 
     setupEventListeners() {
-        this.buttons.forEach(button => {
-            button.addEventListener('click', this.handleButtonClick.bind(this));
-        });
+        // this.buttons.forEach(button => {
+        //     button.addEventListener('click', this.handleButtonClick.bind(this));
+        // });
 
         this.btnContainers.forEach(container => {
+            
             container.addEventListener('click', this.handleContainerClick.bind(this));
         });
 
     }
 
     handleContainerClick(event) {
-        let nextPosition = this.getButtonId(event.target.firstElementChild);
-        this.changeImageOnCarouselClick(nextPosition);
+        if (event.target.matches('.slider__button')) {
+            // This click event is not on the button, do something here
+            this.handleButtonClick(event);
+        } else {
+            let position = this.getButtonId(event.target.firstElementChild);
+            this.changeImageOnCarouselClick(position);
+        }
     }
 
     handleButtonClick(event) {
