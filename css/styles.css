@@ -1,11 +1,33 @@
-    
+html {
+    /* scroll-behavior: smooth; */
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+
+}  
+
 .slider {
     position: relative;
     overflow: hidden;
-    width: 800px; /* Set your desired width */
-    height: 900px; /* Set your desired height */
+    max-width: 1000px; /* Set your desired width */
+    max-height: 900px; /* Set your desired height */
     display: flex;
     flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background-color:black;
+    padding: 20px;
   }
   
   .slider__images {
@@ -15,7 +37,11 @@
   
   .slide {
     flex: 0 0 100%;
-    padding: 0 10px; /* Adjust spacing between slides */
+    padding: 0 20px; /* Adjust spacing between slides */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
   
   img {
@@ -57,5 +83,28 @@
     cursor: pointer; /* Add a pointer cursor on hover */
     margin-right: 10px; /* Adjust the spacing between buttons */
     transition: background-color 0.3s; /* Smooth transition for background color change */
+  }
+
+  .slider__button.active {
+    background-color: #FF5733; /* Change the background color for the active button */
+  }
+  
+  /* Optional: Center the buttons horizontally */
+  .slider__carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Optional: Add some spacing to the button container */
+  .button-container {
+    margin-right: 10px;
+  }
+
+  
+  .slider__controlls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
