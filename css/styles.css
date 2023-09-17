@@ -73,6 +73,18 @@ body {
     cursor: pointer;  
 }
 
+.button-container:hover .slider__button {
+    border: 3px solid var(--white);
+    background-color: var(--white);
+    cursor: pointer;
+    /* Add any other styles or transitions you want */
+}
+
+.button-container:hover .slider__button.selected {
+    border: 3px solid var(--white);
+    background-color: var(--black);
+}
+
 .slider__buttons {
     display: flex;
     flex-direction: row;
