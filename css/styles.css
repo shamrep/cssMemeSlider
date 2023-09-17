@@ -1,74 +1,61 @@
-*, *::after, *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
-
-button:hover {
-    border: #BB945F;
-    background-color: #BB945F;
-    color: #0C0C0E;
-    cursor: pointer;
-}
-
-.slider__button.gold {
-    border: #BB945F;
-    background-color: #BB945F;
-    color: #0C0C0E;
-}
-
+    
 .slider {
-    /* width: 100%; */
-    /* min-width: 500px; */
-    /* max-width: 1024px; */
+    position: relative;
+    overflow: hidden;
+    width: 800px; /* Set your desired width */
+    height: 900px; /* Set your desired height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items:center;
-    background-color: #eeede7;
-}
-
-.slider__images {
-    width: 70%;
+  }
+  
+  .slider__images {
     display: flex;
-    flex-direction: column;
-    /* height: 70%; */
-}
-
-.slider__images img {
-    /* width: 90%;
-    height: 70%; */
-}
-
-.slider__control {
-    width: 70%;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.slider__carousel {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.button-container {
-    display: inline-block; /* Make the container a block element to take up the full width */
-    padding: 5px; /* Add padding to increase clickable area */
-    cursor: pointer; 
-}
-
-.slider__button {
-    min-width: 16px;
-    min-height: 16px;
-    border-radius: 50px;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+    padding: 0 10px; /* Adjust spacing between slides */
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .slider__prev,
+  .slider__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
     border: none;
-    background-color: #cbce0e;
-}
+    cursor: pointer;
+  }
+  
+  .slider__prev {
+    left: 0;
+  }
+  
+  .slider__next {
+    right: 0;
+  }
+  
+  .slider__buttons {
+    display: flex;
+    flex-direction: row;
+  }
 
-.not-visible{
-    display: none;
-}
-
+  .slider__button {
+    width: 20px;
+    height: 20px;
+    background-color: #007BFF; /* Background color for the button */
+    border: none;
+    border-radius: 50%; /* Makes the button round */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin-right: 10px; /* Adjust the spacing between buttons */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+  }
+  
