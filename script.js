@@ -1,7 +1,7 @@
 class Slider {
     constructor() {
         this.NOT_VISIBLE = 'not-visible';
-        this.PAUSE_TIME = 1000;
+        this.PAUSE_TIME = 700;
         this.buttons = document.querySelectorAll('.slider__button');
         this.carouselPosition = this.getButtonId(document.getElementById('slider-button-1'));
         this.changeImageOnCarouselClick(this.carouselPosition);
@@ -17,8 +17,6 @@ class Slider {
     handleButtonClick(event) {
         let nextPosition = this.getButtonId(event.target);
         this.changeImageOnCarouselClick(nextPosition);
-        // this.carouselPosition = nextPosition;
-        // this.changeImageOnCarouselClick
     }
 
     async changeImageOnCarouselClick(newPosition) {
@@ -38,17 +36,19 @@ class Slider {
                     await this.sleep(this.PAUSE_TIME);
                     
             }
-        } 
+        } else {
+            this.displaySlide(this.carouselPosition);
+        }
     }
 
     displaySlide(slideId) {
-       document.getElementById('slider-button-' + slideId).classList.add('gold');
+       document.getElementById('slider-button-' + slideId).classList.add('selected');
         this.showElement(document.getElementById('image-' + slideId));
         this.showElement(document.getElementById('description-' + slideId));
     }
 
     hideSlide(slideId) {
-        document.getElementById('slider-button-' + slideId).classList.remove('gold');
+        document.getElementById('slider-button-' + slideId).classList.remove('selected');
         this.hideElement(document.getElementById('image-' + slideId));
         this.hideElement(document.getElementById('description-' + slideId));
     }
@@ -76,16 +76,10 @@ class Slider {
 
     hideElement(element) {
         element.classList.add(this.NOT_VISIBLE);
-        // element.parentNode.classList.add(this.NOT_VISIBLE);
-        // element.classList.remove(this.FADE);
-        // element.parentNode.classList.remove(this.FADE);
     }
 
     showElement(element) {
         element.classList.remove(this.NOT_VISIBLE);
-        // element.parentNode.classList.remove(this.NOT_VISIBLE);
-        // element.classList.add(this.FADE);
-        // element.parentNode.classList.add(this.FADE);
     }
 
     sleep(ms) {
