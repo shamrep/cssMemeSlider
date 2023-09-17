@@ -12,6 +12,7 @@
     --main-color: #222121;
     --main-btn-color: #609ee0dc; /* Define a custom color variable */
     --white: #fff;
+    --black: #000;
 }
 
 
@@ -40,18 +41,8 @@ body {
     }
 }
 
-.slider__button.selected {
-    border: 3px solid var(--main-btn-color);
-    background-color: black;
-}
-
-.slider__button.selected:hover {
-    border: 3px solid #fff;
-    background-color: black;
-}
-
 .slider {
-    min-width: 120px; 
+    min-width: 320px; 
     padding: 3%;
     width: 50%;
     height: auto;
@@ -77,17 +68,18 @@ body {
     align-items: center;
 }
 
-.slider__carousel {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap:1px;
-}
-
 .button-container {
     display: inline-block; /* Make the container a block element to take up the full width */
     padding: 5px; /* Add padding to increase clickable area */
-    cursor: pointer; 
+    cursor: pointer;  
+}
+
+.slider__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
 }
 
 .slider__button {
@@ -103,6 +95,16 @@ body {
     border: 3px solid var(--white);
     background-color: var(--white);
     cursor: pointer;
+}
+
+.slider__button.selected {
+    border: 3px solid var(--main-btn-color);
+    background-color: var(--black);
+}
+
+.slider__button.selected:hover {
+    border: 3px solid var(--white);
+    background-color: var(--black);
 }
 
 .description {
@@ -132,7 +134,6 @@ body {
         flex-direction: column-reverse;
         gap: 10px;
     }
-
 }
 
 .not-visible{

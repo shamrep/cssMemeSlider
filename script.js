@@ -5,6 +5,8 @@ class Slider {
         this.buttons = document.querySelectorAll('.slider__button');
         this.carouselPosition = this.getButtonId(document.getElementById('slider-button-1'));
         this.changeImageOnCarouselClick(this.carouselPosition);
+        this.btnContainers =  document.querySelectorAll('.button-container');
+
         this.setupEventListeners();
     }
 
@@ -12,6 +14,16 @@ class Slider {
         this.buttons.forEach(button => {
             button.addEventListener('click', this.handleButtonClick.bind(this));
         });
+
+        this.btnContainers.forEach(container => {
+            container.addEventListener('click', this.handleContainerClick.bind(this));
+        });
+
+    }
+
+    handleContainerClick(event) {
+        let nextPosition = this.getButtonId(event.target.firstElementChild);
+        this.changeImageOnCarouselClick(nextPosition);
     }
 
     handleButtonClick(event) {
