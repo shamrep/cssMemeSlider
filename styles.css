@@ -20,13 +20,55 @@
 
 :root {
     --main-color: #222121;
-    --main-btn-color: #609ee0dc; /* Define a custom color variable */
+    --main-btn-color: #609ee0dc;
     --white: #fff;
-    --black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 60vh;
+
 }
 
 .slider {
+    background-color: var(--main-color);
+    width: 80%;
+    height: 100%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.slider__images {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider__image {
+    width: 100%;
+    height: 95%;
+    display: none;
+    background-repeat: no-repeat;
+    flex: 1 1 100%;
+    background-size: 100%;
+    object-fit: cover;
+    animation-name: fadeInAnimation;
+    animation-duration: 0.5s;
+    border-radius: 1rem;
 }
 
 .slider__button {
@@ -36,131 +78,118 @@
 }
 
 .slider__controls {
+    margin-top: 10px;
+    width: 90%;
+    height: 1%;
+    padding: 15px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 
-.slider__titles {
-    display: flex;
-    align-items: center;
-}
-
 .slider__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--white);
     font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
+    font-size: 25px;
     animation-name: fadeInAnimation;
     animation-duration: 0.5s;
 }
 
-.sider__pagination {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 5px;
-}
-
 .slider__label {
-    display: inline-block;
-    min-width: 16px;
-    min-height: 16px;
-    border-radius: 50px;
-    border: none;
-    border: 3px solid var(--main-btn-color);
-    background-color: var(--main-btn-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
     cursor: pointer;
 }
 
-.slider__label:hover {
+.slider__label-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--main-btn-color);
+}
+
+.slider__titles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__label:hover .slider__label-dot {
     border: 3px solid var(--white);
     background-color: var(--white);
     cursor: pointer;
 }
 
-.slider__label.selected {
+.slider__label.selected .slider__label-dot {
     border: 3px solid var(--main-btn-color);
-    background-color: var(--black);
+    background-color: var(--main-color);
 }
 
-#button-1:checked ~ .slider__images > .image-1,
-#button-2:checked ~ .slider__images > .image-2,
-#button-3:checked ~ .slider__images > .image-3,
-#button-4:checked ~ .slider__images > .image-4
-{
+.slider__pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* gap: 5px; */
+}
+
+#button-1:checked~.slider__images>.image-1,
+#button-2:checked~.slider__images>.image-2,
+#button-3:checked~.slider__images>.image-3,
+#button-4:checked~.slider__images>.image-4 {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+#button-1:checked~.slider__controls .slider__titles>.title-1,
+#button-2:checked~.slider__controls .slider__titles>.title-2,
+#button-3:checked~.slider__controls .slider__titles>.title-3,
+#button-4:checked~.slider__controls .slider__titles>.title-4 {
     display: flex;
 }
 
-#button-1:checked ~ .slider__controls .slider__titles > .title-1,
-#button-2:checked ~ .slider__controls .slider__titles > .title-2,
-#button-3:checked ~ .slider__controls .slider__titles > .title-3,
-#button-4:checked ~ .slider__controls .slider__titles > .title-4
-{
-    display: flex;
-}
-
-#button-1:checked ~ .slider__controls .slider__pagination > .label-1,
-#button-2:checked ~ .slider__controls .slider__pagination > .label-2,
-#button-3:checked ~ .slider__controls .slider__pagination > .label-3,
-#button-4:checked ~ .slider__controls .slider__pagination > .label-4
-{
+#button-1:checked~.slider__controls .slider__pagination .slider__label >.dot-1,
+#button-2:checked~.slider__controls .slider__pagination .slider__label >.dot-2,
+#button-3:checked~.slider__controls .slider__pagination .slider__label >.dot-3,
+#button-4:checked~.slider__controls .slider__pagination .slider__label >.dot-4 {
     border: 3px solid var(--main-btn-color);
-    background-color: var(--black);
+    background-color: var(--main-color);
 }
 
-#button-1:checked ~ .slider__controls .slider__pagination > .label-1:hover,
-#button-2:checked ~ .slider__controls .slider__pagination > .label-2:hover,
-#button-3:checked ~ .slider__controls .slider__pagination > .label-3:hover,
-#button-4:checked ~ .slider__controls .slider__pagination > .label-4:hover
-{
+#button-1:checked~.slider__controls .slider__pagination .slider__label:hover >.dot-1,
+#button-2:checked~.slider__controls .slider__pagination .slider__label:hover >.dot-2,
+#button-3:checked~.slider__controls .slider__pagination .slider__label:hover >.dot-3,
+#button-4:checked~.slider__controls .slider__pagination .slider__label:hover >.dot-4 {
     border: 3px solid var(--white);
-    background-color: var(--black);
+    background-color: var(--main-color);
 }
 
-.slider__title
-{
+.slider__title {
     display: none;
 }
 
-.image-1
-{
+.image-1 {
     background-image: url(img_1.jpg);
 }
 
-.image-2
-{
+.image-2 {
     background-image: url(img_2.jpg);
 }
 
-.image-3
-{
+.image-3 {
     background-image: url(img_3.jpg);
 }
 
-.image-4
-{
+.image-4 {
     background-image: url(img_4.jpg);
-}
-
-
-.slider__images
-{
-    width: 100%;
-    display: flex;
-    aspect-ratio: 1/1;
-    border-radius: 1.5rem;
-}
-
-.slider__image
-{
-    display: none;
-    background-repeat: no-repeat;
-    flex: 1 0 90%;
-    object-fit: cover;
-    animation-name: fadeInAnimation;
-    animation-duration: 0.5s;
 }
