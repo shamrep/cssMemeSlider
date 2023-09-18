@@ -46,6 +46,17 @@
     align-items: center;
 }
 
+.slider__title {
+    color: var(--white);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    animation-name: fadeInAnimation;
+    animation-duration: 0.5s;
+}
+
 .sider__pagination {
     display: flex;
     flex-direction: row;
@@ -138,10 +149,10 @@
 
 .slider__images
 {
+    width: 100%;
     display: flex;
     aspect-ratio: 1/1;
     border-radius: 1.5rem;
-    width: 100%;
 }
 
 .slider__image
@@ -150,4 +161,6 @@
     background-repeat: no-repeat;
     flex: 1 0 90%;
     object-fit: cover;
+    animation-name: fadeInAnimation;
+    animation-duration: 0.5s;
 }
