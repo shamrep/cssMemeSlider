@@ -67,6 +67,8 @@ body {
     align-items: center;
 }
 
+
+
 .button-container {
     display: inline-block; /* Make the container a block element to take up the full width */
     padding: 5px; /* Add padding to increase clickable area */
@@ -88,6 +90,18 @@ body {
     border: none;
     border: 3px solid var(--main-btn-color);
     background-color: var(--main-btn-color);
+}
+
+.button-container:hover .slider__button {
+    border: 3px solid var(--white);
+    background-color: var(--white);
+    cursor: pointer;
+    /* Add any other styles or transitions you want */
+}
+
+.button-container:hover .slider__button.selected {
+    border: 3px solid var(--white);
+    background-color: var(--black);
 }
 
 .slider__button:hover {

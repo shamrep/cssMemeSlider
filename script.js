@@ -11,9 +11,6 @@ class Slider {
     }
 
     setupEventListeners() {
-        // this.buttons.forEach(button => {
-        //     button.addEventListener('click', this.handleButtonClick.bind(this));
-        // });
 
         this.btnContainers.forEach(container => {
             
