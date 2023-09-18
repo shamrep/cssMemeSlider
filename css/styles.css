@@ -73,18 +73,6 @@ body {
     cursor: pointer;  
 }
 
-.button-container:hover .slider__button {
-    border: 3px solid var(--white);
-    background-color: var(--white);
-    cursor: pointer;
-    /* Add any other styles or transitions you want */
-}
-
-.button-container:hover .slider__button.selected {
-    border: 3px solid var(--white);
-    background-color: var(--black);
-}
-
 .slider__buttons {
     display: flex;
     flex-direction: row;
@@ -118,13 +106,6 @@ body {
     background-color: var(--black);
 }
 
-.image {
-    border-radius: 1.5%; 
-    animation-name: fadeInAnimation;
-    animation-duration: 0.5s;
-    width: 100%;
-}
-
 .description {
     color: var(--white);
     font-family: Inter;
@@ -134,6 +115,13 @@ body {
     line-height: 20px;
     animation-name: fadeInAnimation;
     animation-duration: 0.5s;
+}
+
+.image {
+    border-radius: 1.5%; 
+    animation-name: fadeInAnimation;
+    animation-duration: 0.5s;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
