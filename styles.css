@@ -1,17 +1,113 @@
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-Regular.ttf') format('ttf');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+:root {
+    --main-color: #222121;
+    --main-btn-color: #609ee0dc; /* Define a custom color variable */
+    --white: #fff;
+    --black: #000;
+}
+
+.slider {
+
+}
+
+.slider__button {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider__controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slider__titles {
+    display: flex;
+    align-items: center;
+}
+
+.sider__pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.slider__label {
+    display: inline-block;
+    min-width: 16px;
+    min-height: 16px;
+    border-radius: 50px;
+    border: none;
+    border: 3px solid var(--main-btn-color);
+    background-color: var(--main-btn-color);
+    cursor: pointer;
+}
+
+.slider__label:hover {
+    border: 3px solid var(--white);
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.slider__label.selected {
+    border: 3px solid var(--main-btn-color);
+    background-color: var(--black);
+}
+
 #button-1:checked ~ .slider__images > .image-1,
 #button-2:checked ~ .slider__images > .image-2,
 #button-3:checked ~ .slider__images > .image-3,
 #button-4:checked ~ .slider__images > .image-4
 {
-    display: block;
+    display: flex;
 }
 
-#button-1:checked ~ .slider__titles > .title-1,
-#button-2:checked ~ .slider__titles > .title-2,
-#button-3:checked ~ .slider__titles > .title-3,
-#button-4:checked ~ .slider__titles > .title-4
+#button-1:checked ~ .slider__controls .slider__titles > .title-1,
+#button-2:checked ~ .slider__controls .slider__titles > .title-2,
+#button-3:checked ~ .slider__controls .slider__titles > .title-3,
+#button-4:checked ~ .slider__controls .slider__titles > .title-4
 {
-    display: inline;
+    display: flex;
+}
+
+#button-1:checked ~ .slider__controls .slider__pagination > .label-1,
+#button-2:checked ~ .slider__controls .slider__pagination > .label-2,
+#button-3:checked ~ .slider__controls .slider__pagination > .label-3,
+#button-4:checked ~ .slider__controls .slider__pagination > .label-4
+{
+    border: 3px solid var(--main-btn-color);
+    background-color: var(--black);
+}
+
+#button-1:checked ~ .slider__controls .slider__pagination > .label-1:hover,
+#button-2:checked ~ .slider__controls .slider__pagination > .label-2:hover,
+#button-3:checked ~ .slider__controls .slider__pagination > .label-3:hover,
+#button-4:checked ~ .slider__controls .slider__pagination > .label-4:hover
+{
+    border: 3px solid var(--white);
+    background-color: var(--black);
 }
 
 .slider__title
@@ -52,6 +148,6 @@
 {
     display: none;
     background-repeat: no-repeat;
-    flex: 1 0 100%;
+    flex: 1 0 90%;
     object-fit: cover;
 }
