@@ -57,6 +57,10 @@ body {
     flex-direction: column;
 }
 
+.slider__image {
+
+}
+
 .slider__control {
     margin-top: 15px;
     width: 90%;
@@ -66,8 +70,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-
 
 .button-container {
     display: inline-block; /* Make the container a block element to take up the full width */
