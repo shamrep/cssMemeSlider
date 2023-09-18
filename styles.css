@@ -1,0 +1,57 @@
+#button-1:checked ~ .slider__images > .image-1,
+#button-2:checked ~ .slider__images > .image-2,
+#button-3:checked ~ .slider__images > .image-3,
+#button-4:checked ~ .slider__images > .image-4
+{
+    display: block;
+}
+
+#button-1:checked ~ .slider__titles > .title-1,
+#button-2:checked ~ .slider__titles > .title-2,
+#button-3:checked ~ .slider__titles > .title-3,
+#button-4:checked ~ .slider__titles > .title-4
+{
+    display: inline;
+}
+
+.slider__title
+{
+    display: none;
+}
+
+.image-1
+{
+    background-image: url(img_1.jpg);
+}
+
+.image-2
+{
+    background-image: url(img_2.jpg);
+}
+
+.image-3
+{
+    background-image: url(img_3.jpg);
+}
+
+.image-4
+{
+    background-image: url(img_4.jpg);
+}
+
+
+.slider__images
+{
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 1.5rem;
+    width: 100%;
+}
+
+.slider__image
+{
+    display: none;
+    background-repeat: no-repeat;
+    flex: 1 0 100%;
+    object-fit: cover;
+}
