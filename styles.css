@@ -187,8 +187,7 @@ body {
 #button-2:checked~.slider__controls .slider__pagination .slider__label:active>.dot-2,
 #button-3:checked~.slider__controls .slider__pagination .slider__label:active>.dot-3,
 #button-4:checked~.slider__controls .slider__pagination .slider__label:active>.dot-4 {
-    border: none;
-    background-color: var(--grey);
+    border: 0.2rem solid var(--grey);
     cursor: pointer;
 }
 
